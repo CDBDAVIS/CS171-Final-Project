@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Yelp</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/nouislider.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/fullpage.css" />
+
+
+</head>
+<body>
+
+<!-- WRAPPER -->
+<div class="container-fluid">
+	<div class="modal fade" id="start" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title start" id="myModalLabel">How to Build a Better Restaurant!</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row" style="height: 250px; padding: 0">
+						<div class="col">
+							<h5> 60% of Restaurants close within their first year and 80% fail within their first 5 years.</h5>
+							<p> One of the most common ways people find restaurants is through Yelp, which brings in 178 million unique visitors monthly. Maximizing a restaurants appearance on Yelp can make the difference between a successful restaurant and a restaurant that goes out of business.</p>
+							<p style ="font-size: small"> Use the filters to the right to look at the cities/cuisine types of your choice. (Please note: Yelp data was only available for the city options provided)</p>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="sidenav">
+		<div class="col">
+		<!-- Select City -->
+		<h5> Select a city </h5>
+		<select id='categorySelectorScatter' class="custom-select align-self-right" onchange="categoryChangeScatter()" style="width: 100%">
+			<option value="all">All</option>
+			<option value="Calgary" selected>Calgary</option>
+			<option value="Mesa">Mesa</option>
+			<option value="Phoenix">Phoenix</option>
+			<option value="Scottsdale">Scottsdale</option>
+			<option value="Charlotte">Charlotte</option>
+			<option value="Las Vegas">Las Vegas</option>
+			<option value="Toronto">Toronto</option>
+			<option value="Pittsburgh">Pittsburgh</option>
+			<option value="Montréal">Montréal</option>
+		</select>
+		<!-- Select Cuisine -->
+		<h5> Select a cuisine </h5>
+		<select id='categorySelectorCuisine' class="custom-select align-self-center" onchange="categoryChangeCuisine()" style="width: 100%">
+			<option value="all" selected>All</option>
+			<option value="French">French</option>
+			<option value="American">American</option>
+			<option value="Breakfast & Brunch">Breakfast & Brunch</option>
+			<option value="Asian Fusion">Asian Fusion</option>
+			<option value="Chinese">Chinese</option>
+			<option value="Japanese">Japanese</option>
+			<option value="Sushi Bars">Sushi Bars</option>
+			<option value="Mexican">Mexican</option>
+			<option value="Fast Food">Fast Food</option>
+			<option value="Greek">Greek</option>
+			<option value="Ethnic Food">Ethnic Food</option>
+			<option value="Other">Other</option>
+		</select>
+		<p style="font-size: x-small"> Due to the size of the data set, selecting  "All" for both filters will cause the visualizations to lag.  </p>
+		<hr>
+		<div class="row" style="height: 33vh">
+			<ul id="tooltip-list">
+				<li class="tooltip-text" id ="name"> </li>
+				<li class="tooltip-text" id ="city"> </li>
+				<li class="tooltip-text" id ="category"> </li>
+				<li class="tooltip-text" id ="stars"> </li>
+				<li class="tooltip-text" id ="reviews"> </li>
+				<li class="tooltip-text" id ="distance"> </li>
+			</ul>
+
+		</div>
+		<div class="wrapper"><img id="colorKeyImage" src="img/colorKey.png"></div>
+		<br><br>
+
+		</div>
+	</div>
+
+
+
+	<div id="fullpage">
+	<div class="section">
+	<div class="row">
+		<!-- HEADING -->
+
+		<div class="row intro" style="height: 700px; padding: 0">
+			<div class="col-7 align-self-center welcome">
+                <h1> Building a better restaurant</h1>
+                <p> Yelp is a powerful tool for the consumer — providing reviews, menus, photos, and other information about restaurants — all valuable information in deciding where to eat. But for the restaurant owner, the stakes are much higher. Every customer that decides to eat somewhere else is a direct hit to a restaurant’s profits. Luckily, Yelp — with its millions of customer reviews — can be a valuable tool for boosting a restaurant’s foot traffic, longevity, and profitability… if you know what to look for. We have curated Yelp data from 9 North American metropolitan areas to find out just how to optimize a restaurant.</p>
+				<p><em>Use the selector boxes on the right to choose the city and cuisine that most closely match your restaurant, or, for those aspiring-but-not-yet-restauranteers, explore the different options to develop your plan of attack. Use the navigation dots on the right to discover how and why to use Yelp data to optimize your restaurant.</em></p>
+			</div>
+			<div class="col-4 align-self-center">
+				<img id ="rest" src = "img/waiter.png">
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- CONTENT -->
+	<div class="section">
+	<div class="row vis vis-1" style="height: 100vh">
+        <div class="section-heading">
+            <h3> Is anyone still using Yelp? Didn’t it come out nearly 20 years ago? <br> </h3>
+            <p> Astute in observing that Yelp is older than smartphones! While Yelp was officially launched in 2004, reviews continue to pour in 16 years later. As the visualization shows, Yelp’s review-count isn’t just still increasing; the actual rate at which Yelp’s review count is growing is increasing too! This means that more and more reviews are written each day. From users in our representative 9 cities alone, Yelp received more than <b>8,000,000</b> reviews. If each Yelp user only wrote one review, that is equivalent to <b>8 out of every 11 people</b> across the entire population of those 9 cities writing a review. </p>
+        </div>
+
+	</div>
+	</div>
+	<div class="section">
+	<div class="row vis vis-2">
+        <div class="section-heading">
+            <h3> So why should you care what strangers on the internet think about your restaurant?<br> </h3>
+            <p> Ever heard the proverb success begets success? The higher your restaurant’s ratings are on Yelp, the more likely Yelp’s loyal followers are to flock to your restaurant — bestowing more business and more “check-ins”, the metric Yelp uses to track when users visit a restaurant. Restaurants with higher star ratings, especially those with 4 stars and above, see an increased number of check-ins. More check-ins, more business, more success. As such, a restaurant’s “star-power” on Yelp is a meaningful indicator of success. Hover over an individual restaurant's dot to see additional details or select a filter to view specific cuisine types.  </p>
+        </div>
+
+	</div>
+	</div>
+	<div class="section">
+	<div class="row vis vis-3">
+        <div class="section-heading" style="width: 70%">
+            <h3> What does the “landscape of success” look like amongst different cuisine types?<br> </h3>
+            <p> Breakfast/Brunch and American Cuisine dominate the high star-power buckets — comprising a <b>46%</b> share of 4-star reviewed restaurants and a <b>46%</b> share of 5-star reviewed restaurants. Additionally, Japanese food, while not as widespread as American or Breakfast restaurants, is nearly always in the 4-star range. Restaurant owners looking for reviewing success should avoid fast-food style restaurants, which dominate the 2-star category. Hover over each category of restaurants to view its relative distribution amongst the star categories.  </p>
+        </div>
+	</div>
+	</div>
+	<div class="section">
+	<div class="row vis vis-4">
+        <div class="section-heading" style="width: 60vw" >
+            <h3> So where should I open my restaurant?<br> </h3>
+            <p> For those looking to open a new restaurant or open an additional location of an existing restaurant, restaurants closer to the city’s center tend to do better. To filter out all but one star-bucket, hover over the circles in the key below. Hover over an individual restaurant dot for more information and details.  </p>
+        </div>
+	</div>
+	</div>
+	<div class="section">
+	<div class="row vis vis-5">
+        <div class="section-heading row" style="width: 70vw">
+            <h3> What other factors should I consider? <br> </h3>
+            <p> The two restaurant qualities having the most direct impact on restaurant performance are outdoor seating and accepting reservations. Restaurants with outdoor seating were far more likely to have higher reviews. So go ahead and open up that patio, sidewalk, or courtyard seating because your customers will thank you! Accepting reservations seems to have a similar effect, where if a restaurant accepts reservations, they are more likely to have high review scores. Not accepting reservations, however, seems to lead to higher check-in numbers, possibly because of the ease of just dropping in. For long-term success, we recommend optimizing for reviews (remember, success begets success), but for a short-term sprint focused on maximizing customers, declining to accept reservations would increase foot traffic.    <br> </p>
+        </div>
+		<div class="row justify-content-center" id="priceRange">
+			Price (In Number of Dollar Signs): <div id="range"></div>
+		</div>
+	</div>
+	</div>
+	<div class="section">
+	<div class="row" id="recommendations">
+		<div class="section-heading" style="width: 70vw">
+			<h3> So how do I optimize my restaurant? </h3>
+		</div>
+		<div class="row recommendations" style="width: 70vw">
+			<ol>
+				<li>Pay attention to Yelp reviews! Yelp is more relevant and popular than ever, with more reviews written in the past 4 years than in the 12 years before that. </li>
+				<li>You should aim to get your restaurant in the 4+ star range, which is where we see the biggest boost in “check-in” numbers from ratings. </li>
+				<li>Offer breakfast/brunch food or American cuisine, as these two categories dominate the high-star tiers. Or consider Japanese cuisine as a safe bet, for most Japanese restaurants sit comfortably around the 4 star range.</li>
+				<li>If starting a new restaurant, pick a location close to the city center, as higher scoring reviews are concentrated closer to the city center. </li>
+				<li>Increase your star rating by offering outdoor seating and accepting reservations, either over the phone or through some online platform. </li>
+			</ol>
+		</div>
+	</div>
+	</div>
+	<div class="section">
+
+		<div class="row about-us">
+			<h3>About us</h3>
+		</div>
+		<div class = "row">
+			<div class = "col bio">
+				<img class ="images" src="img/davis.jpeg">
+				<h3 class="name">Davis Bailey</h3>
+				<p>Davis is a junior in Quincy studying History & Literature and CS. His favorite cuisine type is all of the above!</p>
+			</div>
+			<div class = "col bio">
+				<img class ="images" src = "img/nick.jpg" >
+				<h3 class="name">Nick Lore-Edwards</h3>
+				<p>Nick is a senior in Mather studying Economics with a secondary in CS. His favorite cuisine type is Sushi!</p>
+			</div>
+			<div class = "col bio">
+				<img class ="images" src = "img/natalie.jpg">
+				<h3 class="name">Natalie Uhr</h3>
+				<p>Natalie is a junior in Quincy studying Economics with a secondary in CS. Her favorite cuisine type is Sushi!</p>
+			</div>
+			<div class ="col bio"> </div>
+		</div>
+		<p id = "data-source"> Data Source: https://www.yelp.com/dataset </p>
+
+	</div>
+</div>
+</div>
+
+
+<!-- - - - - - - - - - - - >
+<    Load JS libraries     >
+<- - - - - - - - - - - - -->
+
+<!-- BOOTSTRAP -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-- d3 -->
+<script src="https://d3js.org/d3.v6.min.js"></script>
+
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+<!-- fullpage (scrolling) -->
+<script src="js/fullpage.js"></script>
+<script src="js/fullpage.min.js"></script>
+
+<!-- Slider -->
+<script src="js/nouislider.js"></script>
+
+<!-- OWN JS -->
+<script src="js/main.js"></script>
+<script src="js/distance.js"></script>
+<script src="js/scatter-plot.js"></script>
+<script src="js/parallel-chart.js"></script>
+<script src="js/stacked-bar.js"></script>
+<script src="js/area-chart.js"></script>
+
+<script>
+	// $(window).on('load',function(){
+	// 	$('#start').modal('show');
+	// });
+</script>
+
+<script>
+	new fullpage('#fullpage', {
+		//options here
+		autoScrolling:true,
+		scrollHorizontally: true,
+		anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage', 'sixthPage', 'seventhPage', 'eighthPage'],
+		navigation: true,
+		navigationPosition: 'right',
+		navigationTooltips: ['Introduction', 'Reviews Over Time', 'Cuisine Types Rating', 'Cuisine Types Reviews', 'Distance From City Center', 'Restaurant Factors', 'Recommendations', 'About Us']
+		});
+
+	//methods
+	fullpage_api.setAllowScrolling(true);
+</script>
+
+
+	</body>
+</html>

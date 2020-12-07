@@ -1,0 +1,221 @@
+body{
+    padding-right: 200px;
+    /*background-color: #EBD0CA*/
+}
+.container-fluid{
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.modal{
+    width: 100%
+}
+
+.row{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#rest{
+    height: 90vh;
+}
+
+
+
+.welcome{
+    text-align: left;
+    font-family: Avenir;
+    font-style: normal;
+}
+
+h1{
+    font-size: 6rem;
+    color: #d32323;
+    line-height: 80%;
+    font-style: normal;
+    padding-left: 0;
+}
+
+h3{
+    font-family: Avenir;
+}
+
+.vis{
+    height:100vh
+}
+
+.images{
+    width: 80%;
+
+}
+
+
+
+.intro{
+    height:80vh
+
+}
+
+.left{
+   align-items: start;
+    align-self: start;
+    justify-content: left;
+}
+
+#barTooltip {
+    position: absolute;
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    padding: 3px;
+    font: 5px Avenir;
+    background: #d76666;
+    border-color: #d32323;
+    border-radius: 8px;
+    color: black
+}
+
+
+
+#centerTooltip{
+    position: absolute;
+    text-align: center;
+    width: 200px;
+    height: 20px;
+    padding: 3px;
+    font: 5px Avenir;
+    background: #b2b6bc;
+    border-radius: 8px;
+    border-color: #d32323;
+    background: #d76666;
+}
+
+#data-source{
+    font-size: xx-small;
+}
+
+g .tick{
+    fill: black
+}
+
+.axis {
+    opacity: 0.4;
+}
+
+.axis:hover {
+    opacity: 1;
+}
+
+.band-labels{
+    font-size: 12px;
+}
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 17vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    bottom: 0; /* Stay at the top */
+    right: 0;
+    background-color: #EBD0CA;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding: 20px;
+    color: #d32323
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.close{
+    align-self: start;
+}
+
+#range {
+    width: 250px;
+}
+
+h3 {
+    color: #d32323;
+}
+
+p {
+    color: #666666;
+}
+
+.section-heading {
+    border: 4px solid #cccccc;
+    padding: 10px;
+    width: 80vw;
+}
+
+#colorKeyImage {
+    height: 25%;
+    width: 100%;
+}
+
+#priceRange {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+#recommendations {
+    padding: 5px;
+    margin: 5px;
+}
+
+li {
+    padding: 5px;
+}
+
+.name{
+    padding-top: 5px;
+}
+
+.bio {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.c-1-color { background: #d32323; }
+
+.tooltip-text {
+    font-family: Avenir;
+    font-size: 10pt;
+}
+
+
+
+
+#tooltip-list li {
+    list-style-type: none;
+    padding-left: 0;
+    color: black;
+    padding-right: 5px;
+}
